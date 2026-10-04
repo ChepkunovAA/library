@@ -1,0 +1,182 @@
+:root {
+    --border: #d7d9e0;
+    --accent: #2f5bd7;
+    --danger: #c0392b;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+    color: #1d1f26;
+    background: #f6f7f9;
+}
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+}
+
+header h1 {
+    font-size: 20px;
+    margin: 0;
+}
+
+main {
+    max-width: 860px;
+    margin: 24px auto;
+    padding: 0 16px;
+}
+
+input, button {
+    font: inherit;
+    padding: 7px 10px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: #fff;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: .5;
+}
+
+button[hidden], [hidden] {
+    display: none !important;
+}
+
+form#search-form {
+    display: flex;
+    gap: 8px;
+    flex: 1 1 260px;
+}
+
+form#search-form input {
+    flex: 1;
+}
+
+.session, .actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.card:hover {
+    border-color: var(--accent);
+}
+
+.card .title {
+    font-weight: 600;
+}
+
+.card .meta, .hint {
+    color: #6b7280;
+    font-size: 13px;
+}
+
+.likes {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+#like {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+#like svg path {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+}
+
+#like.liked {
+    border-color: var(--danger);
+    color: var(--danger);
+    font-weight: 600;
+}
+
+#like.liked svg path {
+    fill: var(--danger);
+}
+
+dialog {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    width: min(420px, 92vw);
+}
+
+dialog::backdrop {
+    background: rgba(20, 22, 30, .45);
+}
+
+dialog form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+dialog h3 {
+    margin: 0 0 4px;
+}
+
+.error {
+    color: var(--danger);
+    min-height: 16px;
+    margin: 0;
+    font-size: 13px;
+}
+
+#delete {
+    color: var(--danger);
+}
+
+.liked {
+    border-color: var(--accent);
+    color: var(--accent);
+    font-weight: 600;
+}
+
+textarea {
+    font: inherit;
+    padding: 7px 10px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: #fff;
+    min-height: 70px;
+    resize: vertical;
+}

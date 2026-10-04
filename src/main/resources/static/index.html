@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Общедоступная библиотека</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header>
+    <h1>Библиотека</h1>
+    <form id="search-form">
+        <input id="search-input" type="text" placeholder="Название книги" autocomplete="off">
+        <button type="submit">Найти</button>
+    </form>
+    <div class="session">
+        <span id="who"></span>
+        <button id="upload-open" hidden>Загрузить книгу</button>
+        <button id="login-open">Войти</button>
+        <button id="logout" hidden>Выйти</button>
+    </div>
+</header>
+
+<main>
+    <section id="list-view">
+        <p id="empty" hidden>Книги не найдены</p>
+        <div id="books"></div>
+    </section>
+
+    <section id="book-view" hidden>
+        <button id="back">К списку</button>
+        <h2 id="book-title"></h2>
+        <p id="book-author"></p>
+        <p id="book-description"></p>
+        <p id="book-meta"></p>
+        <div class="actions">
+            <button id="download">Скачать</button>
+            <button id="like" title="Нравится">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                    <path d="M12 20.7 4.6 13.3a4.6 4.6 0 0 1 6.5-6.5l.9.9.9-.9a4.6 4.6 0 1 1 6.5 6.5z"/>
+                </svg>
+                <span id="like-count">0</span>
+            </button>
+            <button id="delete" hidden>Удалить</button>
+        </div>
+    </section>
+</main>
+
+<dialog id="auth-dialog">
+    <form id="auth-form">
+        <h3 id="auth-title">Вход</h3>
+        <input id="auth-username" type="text" placeholder="Логин" autocomplete="username">
+        <input id="auth-password" type="password" placeholder="Пароль" autocomplete="current-password">
+        <p id="auth-hint" class="hint" hidden>Пароль: минимум 10 символов, буквы верхнего и нижнего регистра, цифра и служебный символ.</p>
+        <div class="actions">
+            <button type="submit" id="auth-submit">Войти</button>
+            <button type="button" id="auth-toggle">Регистрация</button>
+            <button type="button" id="auth-cancel">Отмена</button>
+        </div>
+        <p id="auth-error" class="error"></p>
+    </form>
+</dialog>
+
+<dialog id="upload-dialog">
+    <form id="upload-form">
+        <h3>Загрузка книги</h3>
+        <input id="upload-title" type="text" placeholder="Название" required>
+        <input id="upload-author" type="text" placeholder="Автор" required>
+        <textarea id="upload-description" placeholder="Описание"></textarea>
+        <input id="upload-file" type="file" accept=".pdf,.epub,.fb2" required>
+        <p class="hint">Форматы: PDF, EPUB, FB2. Максимальный размер — 50 МБ.</p>
+        <div class="actions">
+            <button type="submit">Отправить</button>
+            <button type="button" id="upload-cancel">Отмена</button>
+        </div>
+        <p id="upload-error" class="error"></p>
+    </form>
+</dialog>
+
+<script src="/app.js"></script>
+</body>
+</html>
